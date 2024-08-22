@@ -1,43 +1,40 @@
-let triunfo = 72;
-let derrotas = 5;
-let saldoRankeadas = calcularSaldoRankeadas( triunfo, derrotas);
+class heroi {
+    constructor(nome, idade, tipo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.tipo = tipo;
+    }
 
-function calcularSaldoRankeadas( triunfo, derrotas) {
-    let saldo =  triunfo - derrotas;
-    return saldo;
+    atacar() {
+        let ataque;
+        switch (this.tipo) {
+            case 'mago':
+                ataque = 'magia';
+                break;
+            case 'guerreiro':
+                ataque = 'espada';
+                break;
+            case 'monge':
+                ataque = 'artes marciais';
+                break;
+            case 'ninja':
+                ataque = 'shuriken';
+                break;
+            default:
+                ataque = 'ataque desconhecido';
+        }
+        console.log(`O ${this.tipo} atacou usando ${ataque}`);
+    }
 }
 
-switch (true) {
-    case (saldoRankeadas <= 10):
-        nivel = "Ferro";
-        break;
-    case (saldoRankeadas <= 20):
-        nivel = "Bronze";
-        break;
-    case (saldoRankeadas <= 50):
-        nivel = "Prata";
-        break;
-    case (saldoRankeadas <= 80):
-        nivel = "Ouro";
-        break;
-    case (saldoRankeadas <= 90):
-        nivel = "Diamante";
-        break;
-    case (saldoRankeadas <= 100):
-        nivel = "Lendário";
-        break;
-    case (saldoRankeadas > 101):
-        nivel = "Imortal";
-        break;
-}
+let mago = new heroi('Gandalf', 150, 'mago');
+mago.atacar(); 
 
-console.log("O Herói tem de saldo de ", saldoRankeadas , "está no nível de", nivel);
+let guerreiro = new heroi('Arthur', 35, 'guerreiro');
+guerreiro.atacar(); 
 
+let monge = new heroi('Bodhidharma', 88, 'monge');
+monge.atacar(); 
 
-
-
-
-
-
-
-
+let ninja = new heroi('Hanzo', 28, 'ninja');
+ninja.atacar(); 
